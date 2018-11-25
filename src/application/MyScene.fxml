@@ -16,6 +16,6 @@
             <Image url="@../../../../Desktop/home.png" />
          </image>
       </ImageView>
-      <Box cullFace="FRONT" depth="100.0" height="20.0" layoutX="19.0" layoutY="440.0" width="20.0" />
+      <Box cullFace="FRONT" depth="100.0" height="20.0" layoutX="19.0" layoutY="440.0" width="20.0"/>
    </children>
 </AnchorPane>

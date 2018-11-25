@@ -20,7 +20,6 @@ public class Map {
 		this.obstacles = os;
 	}
 
-
 	public int getWidth() {
 		return width;
 	}

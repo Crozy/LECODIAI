@@ -14,4 +14,5 @@ public class Obstacle {
 	public Position getPosition() {
 		return position;
 	}
+
 }

@@ -24,5 +24,4 @@ public abstract class Sensor {
         return "Capteur position en x : " + this.getPosition().x + " position en y : " + this.getPosition().y ;
     }
 
-
 }

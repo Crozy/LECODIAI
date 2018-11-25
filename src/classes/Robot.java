@@ -23,7 +23,6 @@ public class Robot {
         this.sensor.add(sensor);
     }
 
-
     public Position getPosition() {
         return position;
     }

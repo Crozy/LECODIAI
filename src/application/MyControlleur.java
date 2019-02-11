@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Box;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 
 public class MyControlleur extends Thread implements Initializable {
 
@@ -21,7 +23,7 @@ public class MyControlleur extends Thread implements Initializable {
 	private Button myButtonGo;
 
 	@FXML
-	private Button myButtonStop;
+	private Button myButtonStop = new Button("STOP");
 
 	@FXML
 	private TextField myTextField;
@@ -34,6 +36,12 @@ public class MyControlleur extends Thread implements Initializable {
 
 	@FXML
 	private Box aspi;
+
+	@FXML
+	private Line mur1, mur2, mur3;
+	
+	@FXML
+	private Rectangle trace;
 
 	public Label getTheX() {
 		return theX;
@@ -66,6 +74,13 @@ public class MyControlleur extends Thread implements Initializable {
 		theX.setText(String.valueOf(aspi.getLayoutX()));
 		theY.setText(String.valueOf(aspi.getLayoutY()));
 
+		System.out.println("Start Y : " + mur1.getStartY());
+		System.out.println("End Y : " + mur1.getEndY());
+		System.out.println("Start X : " + mur1.getStartX());
+		System.out.println("End X : " + mur1.getEndX());
+
+		myButtonGo = new Button("TEST");
+
 	}
 
 	public void clickButtonGo(ActionEvent event) throws InterruptedException {
@@ -87,11 +102,12 @@ public class MyControlleur extends Thread implements Initializable {
 	// toujours mais ne fait aucune action.
 	Thread t = new Thread() {
 		public void run() {
-			
+
 			while (true) { // Je ne suis pas fier de ce truck x)
 				while (stopGo == 1) {
 					try {
-						sleep(100); // Si je met rien dans cette boucle je ne peut pas relancer la partie. Donc a voir.
+						sleep(100); // Si je met rien dans cette boucle je ne peut pas relancer la partie. Donc a
+									// voir.
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -102,7 +118,11 @@ public class MyControlleur extends Thread implements Initializable {
 					System.out.println("X : " + aspi.getLayoutX() + " Y : " + aspi.getLayoutY());
 					try {
 						sleep(100);
-						avance();
+						if (aspi.getLayoutX() <= mur1.getEndX() + 110) {
+							avance();
+						} else {
+							System.out.println("Aspi : " + aspi.getLayoutX() + " mur : " + mur1.getLayoutX());
+						}
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -114,11 +134,29 @@ public class MyControlleur extends Thread implements Initializable {
 	// Action fournit par le simulateur
 	public void avance() {
 		Double theX = aspi.getLayoutX();
-		this.aspi.setLayoutX(theX + 1);
+		trace.setWidth(trace.getWidth() + 1);
+		this.aspi.setLayoutX(aspi.getLayoutX() + 1);
 	}
 
 	public void recule() {
 		this.aspi.setLayoutX(aspi.getLayoutX() - 1);
+	}
+	
+	public Boolean radarNord() {
+//		if(aspi.getLayoutY() + 1){
+//			
+//		}
+		return null;		
+	}
+	
+	public Boolean radarSud() {
+		return null;		
+	}
+	public Boolean radarEst() {
+		return null;		
+	}
+	public Boolean radarOuest() {
+		return null;		
 	}
 
 }

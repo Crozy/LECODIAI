@@ -3,17 +3,24 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 public class MyControlleur extends Thread implements Initializable {
+
+	@FXML
+	private AnchorPane anchorPane;
 
 	// 0: Partie non lancé 1: Stop, 2: Go
 	private static int stopGo = 0;
@@ -39,9 +46,11 @@ public class MyControlleur extends Thread implements Initializable {
 
 	@FXML
 	private Line mur1, mur2, mur3;
-	
+
 	@FXML
-	private Rectangle trace;
+	private Line trace, trace2;
+
+	private Boolean monte = true;
 
 	public Label getTheX() {
 		return theX;
@@ -78,8 +87,19 @@ public class MyControlleur extends Thread implements Initializable {
 		System.out.println("End Y : " + mur1.getEndY());
 		System.out.println("Start X : " + mur1.getStartX());
 		System.out.println("End X : " + mur1.getEndX());
+		
+		
 
 		myButtonGo = new Button("TEST");
+
+		// anchorPane.getChildren().add(trace2);
+//
+//		Line trace2 = new Line(100, 440, 400, 400);
+//
+//		trace2.setStrokeWidth(15);
+//		trace2.setStroke(Color.BLUE);
+//
+//		anchorPane.getChildren().add(trace2);
 
 	}
 
@@ -118,10 +138,11 @@ public class MyControlleur extends Thread implements Initializable {
 					System.out.println("X : " + aspi.getLayoutX() + " Y : " + aspi.getLayoutY());
 					try {
 						sleep(100);
-						if (aspi.getLayoutX() <= mur1.getEndX() + 110) {
+						if (aspi.getLayoutX() <= mur1.getStartX() - aspi.getWidth()) {
 							avance();
 						} else {
-							System.out.println("Aspi : " + aspi.getLayoutX() + " mur : " + mur1.getLayoutX());
+							monte();
+							System.out.println("Aspi : " + aspi.getLayoutX() + " mur : " + mur1.getStartX());
 						}
 					} catch (InterruptedException e) {
 						e.printStackTrace();
@@ -134,29 +155,58 @@ public class MyControlleur extends Thread implements Initializable {
 	// Action fournit par le simulateur
 	public void avance() {
 		Double theX = aspi.getLayoutX();
-		trace.setWidth(trace.getWidth() + 1);
+		trace.setEndX(theX - 110);
 		this.aspi.setLayoutX(aspi.getLayoutX() + 1);
 	}
 
 	public void recule() {
 		this.aspi.setLayoutX(aspi.getLayoutX() - 1);
 	}
-	
-	public Boolean radarNord() {
-//		if(aspi.getLayoutY() + 1){
-//			
-//		}
-		return null;		
+
+	public void monte() {
+//		Double theY = aspi.getLayoutY();;
+//		anchorPane.getChildren().add(trace2);
+//		trace2.setStartX(aspi.getLayoutX());
+//		trace2.setStartY(aspi.getLayoutY());
+//		
+		this.aspi.setLayoutY(aspi.getLayoutY() - 1);
+//		trace2.setEndY(theY + 110);
+
+		if (monte) {
+			trace2 = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
+			//trace2.setStrokeWidth(15);
+			//trace2.setStroke(Color.BLUE);
+			Platform.runLater(() -> {
+				anchorPane.getChildren().add(trace2);
+			});
+
+			monte = false;
+		}
+
+		if (trace2 != null) {
+			trace2.setEndY(aspi.getLayoutY());
+		}
 	}
-	
-	public Boolean radarSud() {
-		return null;		
+
+	public void descent() {
+		this.aspi.setLayoutY(aspi.getLayoutY() + 1);
 	}
-	public Boolean radarEst() {
-		return null;		
-	}
-	public Boolean radarOuest() {
-		return null;		
-	}
+
+//	public Boolean radarNord() {
+////		if(aspi.getLayoutY() + 1){
+////			
+////		}
+//		return null;		
+//	}
+//	
+//	public Boolean radarSud() {
+//		return null;		
+//	}
+//	public Boolean radarEst() {
+//		return null;		
+//	}
+//	public Boolean radarOuest() {
+//		return null;		
+//	}
 
 }

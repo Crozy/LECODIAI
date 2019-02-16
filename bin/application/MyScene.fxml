@@ -8,22 +8,81 @@
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="695.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyControlleur">
+<AnchorPane fx:id="anchorPane" prefHeight="595.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyControlleur">
    <children>
-      <Line endX="313.0" layoutX="112.0" layoutY="569.0" startX="-100.0" />
-      <Label layoutX="174.0" layoutY="545.0" text="Information" />
+      <Line endX="313.0" layoutX="112.0" layoutY="444.0" startX="-100.0" />
+      <Label layoutX="174.0" layoutY="400.0" text="Information" />
       <ImageView fitHeight="535.0" fitWidth="455.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@home.png" />
+            <Image url="@home1.png" />
          </image>
       </ImageView>
-      <Button fx:id="myButtonGo" layoutX="265.0" layoutY="586.0" mnemonicParsing="false" onAction="#clickButtonGo" prefHeight="25.0" prefWidth="115.0" text="Go !" />
-      <Label fx:id="theX" layoutX="77.0" layoutY="598.0" text="theX" />
-      <Label fx:id="theY" layoutX="77.0" layoutY="630.0" text="theY" />
-      <Button fx:id="myButtonStop" layoutX="265.0" layoutY="635.0" mnemonicParsing="false" onAction="#clickButtonStop" prefHeight="25.0" prefWidth="115.0" text="Stop !" />
-      <Line fx:id="mur1" endX="252.0" endY="501.0" startX="252.0" startY="340.0" />
-      <Line fx:id="mur2" cache="true" endX="315.6116943359375" endY="332.0" layoutX="119.0" layoutY="4.0" startX="133.5" startY="332.0" />
-      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="19.0" layoutY="440.0" width="20.0" />
-      <Line fx:id="trace" endX="-84.0" layoutX="111.0" layoutY="440.0" startX="-100.0" />
+      <Button fx:id="myButtonGo" layoutX="265.0" layoutY="461.0" mnemonicParsing="false" onAction="#clickButtonGo" prefHeight="25.0" prefWidth="115.0" text="Go !" />
+      <Label fx:id="theX" layoutX="77.0" layoutY="466.0" text="theX" />
+      <Label fx:id="theY" layoutX="77.0" layoutY="500.0" text="theY" />
+      <Button fx:id="myButtonStop" layoutX="265.0" layoutY="505.0" mnemonicParsing="false" onAction="#clickButtonStop" prefHeight="25.0" prefWidth="115.0" text="Stop !" />
+      <Line fx:id="mur1" endX="341.5" endY="169.0" startX="214.0" startY="169.0" />
+      <Line fx:id="mur2" cache="true" endX="456.0" endY="352.0" startX="263.5" startY="352.0" />
+      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="19.0" layoutY="140.0" width="20.0" />
+      <Line fx:id="trace" endX="-84.0" layoutX="111.0" layoutY="140.0" startX="-100.0" />
+      <Line fx:id="mur5" endX="382.29290771484375" endY="169.0" startX="455.29290771484375" startY="169.0" />
+      <Line fx:id="mur3" endX="338.29290771484375" endY="161.0" startX="213.0" startY="161.0" />
+      <Line fx:id="mur11" endX="212.5" endY="102.0" layoutY="10.0" startX="95.5" startY="102.0" />
+      <Line fx:id="mur10" endX="92.29289245605469" endY="100.0" startX="212.2928924560547" startY="100.0" />
+      <Line fx:id="mur8" endX="61.0" endY="100.0" startX="1.0" startY="100.0" />
+      <Line fx:id="mur9" endX="44.5" endY="189.0" startX="1.0" startY="189.0" />
+      <Line fx:id="mur13" endX="0.9999847412109375" endY="113.0" startX="61.29289245605469" startY="113.0" />
+      <Line fx:id="mur14" endX="61.5" endY="99.0" startX="61.5" startY="111.0" />
+      <Line fx:id="mur12" endX="93.5" endY="99.0" startX="93.5" startY="114.0" />
+      <Line fx:id="mur58" endX="-9.0" endY="59.0" startX="-9.0" startY="93.0" />
+      <Line fx:id="mur4" cache="true" endX="263.5" endY="362.46551513671875" startX="263.5" startY="352.0" />
+      <Line fx:id="mur6" endX="381.5" endY="161.0" startX="421.5" startY="161.0" />
+      <Line fx:id="mur61" endX="419.5" endY="134.00001525878906" startX="456.0" startY="134.0" />
+      <Line fx:id="mur7" endX="456.5" endY="352.0" startX="456.5" startY="70.79289245605469" />
+      <Line fx:id="mur15" endX="222.5" endY="130.0" startX="222.5" />
+      <Line fx:id="mur16" endX="296.5" endY="34.29289245605469" startX="296.5" />
+      <Line fx:id="mur17" endX="223.0" endY="-0.4999847412109375" startX="296.0" startY="-0.5" />
+      <Line fx:id="mur18" endX="420.5" endY="160.99998474121094" startX="420.5" startY="133.7928924560547" />
+      <Line fx:id="mur19" endX="339.5" endY="35.79289245605469" startX="339.5" />
+      <Line fx:id="mur20" endX="339.5" endY="35.79289245605469" startX="296.5" startY="35.79289245605469" />
+      <Line fx:id="mur21" endX="213.5" endY="98.79289245605469" startX="213.5" startY="53.79289245605469" />
+      <Line fx:id="mur22" cache="true" endX="0.9999847412109375" endY="362.46551513671875" startX="263.5" startY="362.96551513671875" />
+      <Line fx:id="mur23" cache="true" endX="1.0" endY="362.46551513671875" startX="1.0" startY="68.79289245605469" />
+      <Line fx:id="mur24" endX="214.5" endY="160.7928924560547" startX="214.5" startY="168.7928924560547" />
+      <Line fx:id="mur25" endX="342.0" endY="160.7928924560547" startX="342.0" startY="169.49998474121094" />
+      <Line fx:id="mur26" endX="380.5" endY="160.7928924560547" startX="380.5" startY="168.50001525878906" />
+      <Line fx:id="mur27" endX="214.5" endY="111.79289245605469" startX="214.5" startY="130.0" />
+      <Line fx:id="mur28" endX="222.5" endY="130.49998474121094" startX="214.0" startY="130.49998474121094" />
+      <Line fx:id="mur29" endX="38.5" endY="1.0" startX="424.0" startY="1.0" />
+      <Line fx:id="mur30" endX="36.5" endY="70.79289245605469" startX="1.5" startY="70.79289245605469" />
+      <Line fx:id="mur31" endX="36.5" endY="70.79289245605469" startX="36.5" startY="0.7928924560546875" />
+      <Line fx:id="mur32" endX="417.5" endY="71.79289245605469" startX="417.5" startY="0.4999847412109375" />
+      <Line fx:id="mur33" endX="417.5" endY="71.79289245605469" startX="456.0" startY="71.79290771484375" />
+      <Line fx:id="mur34" endX="342.5" endY="82.79289245605469" startX="299.5" startY="82.79289245605469" />
+      <Line fx:id="mur35" endX="299.5" endY="108.79289245605469" startX="299.5" startY="82.79289245605469" />
+      <Line fx:id="mur36" endX="343.0" endY="107.79289245605469" startX="343.0" startY="83.29289245605469" />
+      <Line fx:id="mur37" endX="343.0" endY="107.79289245605469" startX="298.5" startY="107.79289245605469" />
+      <Line fx:id="mur38" endX="46.5" endY="190.7928924560547" startX="46.5" startY="235.7928924560547" />
+      <Line fx:id="mur39" endX="29.5" endY="291.79290771484375" startX="29.5" startY="248.7928924560547" />
+      <Line fx:id="mur40" endX="56.5" endY="317.79290771484375" startX="102.5" startY="317.79290771484375" />
+      <Line fx:id="mur41" endX="114.5" endY="343.79290771484375" startX="114.5" startY="311.79290771484375" />
+      <Line fx:id="mur42" endX="114.5" endY="343.79290771484375" startX="1.0" startY="343.79290771484375" />
+      <Line fx:id="mur43" endX="103.5" endY="310.79290771484375" startX="115.5" startY="310.79290771484375" />
+      <Line fx:id="mur44" endX="46.5" endY="299.79290771484375" layoutX="10.0" layoutY="10.0" startX="28.5" startY="299.79290771484375" />
+      <Line fx:id="mur45" endX="36.5" endY="245.7928924560547" startX="36.5" startY="236.7928924560547" />
+      <Line fx:id="mur46" endX="37.5" endY="308.79290771484375" startX="37.5" startY="297.79290771484375" />
+      <Line fx:id="mur46" endX="88.5" endY="52.79289245605469" startX="88.5" startY="1.5" />
+      <Line fx:id="mur47" endX="125.0" endY="52.79289245605469" startX="125.0" startY="1.5" />
+      <Line fx:id="mur48" endX="125.0" endY="52.79289245605469" startX="90.5" startY="52.79289245605469" />
+      <Line fx:id="mur49" endX="180.0" endY="52.79289245605469" startX="180.0" startY="1.5" />
+      <Line fx:id="mur50" endX="215.0" endY="54.0" startX="180.0" startY="54.0" />
+      <Line fx:id="mur51" endX="129.5" endY="256.79290771484375" startX="165.5" startY="256.79290771484375" />
+      <Line fx:id="mur50" endX="129.5" endY="285.0" startX="165.5" startY="285.0" />
+      <Line fx:id="mur53" endX="129.5" endY="256.79290771484375" startX="129.5" startY="286.79290771484375" />
+      <Line fx:id="mur52" endX="166.0" endY="257.79290771484375" startX="166.0" startY="285.5" />
+      <Line fx:id="mur54" endX="289.5" endY="246.7928924560547" startX="398.5" startY="246.7928924560547" />
+      <Line fx:id="mur55" endX="289.5" endY="295.0" startX="398.5" startY="295.0" />
+      <Line fx:id="mur56" endX="399.0" endY="247.7928924560547" startX="399.0" startY="295.0" />
+      <Line fx:id="mur57" endX="288.0" endY="247.7928924560547" startX="288.0" startY="295.0" />
    </children>
 </AnchorPane>

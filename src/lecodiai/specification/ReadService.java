@@ -2,6 +2,7 @@ package lecodiai.specification;
 
 import java.util.ArrayList;
 
+import lecodiai.model.Direction;
 import lecodiai.model.Entity;
 import lecodiai.model.Position;
 
@@ -14,6 +15,7 @@ public interface ReadService {
 	public int getMapXMin();
 	public int getWallSize();
 	public Position getRobotPosition();
+	public Direction getRobotDirection();
 	public int getRobotHeight();
 	public int getRobotWidth();
 	public int getEntitySize();

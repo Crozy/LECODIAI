@@ -2,8 +2,6 @@ package lecodiai;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.scene.Group;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -14,21 +12,24 @@ import lecodiai.specification.EngineService;
 import lecodiai.specification.ViewerService;
 import lecodiai.view.Viewer;
 
-public class Main extends Application {
+public class Main extends Application{
 	private static EngineService 	engineService;
 	private static DataService		dataService;
 	private static ViewerService	viewerService;
-	
+	private Thread 					t1;
+	private static boolean 			execute;
+
 	public static void main(String[] args) {
+		execute = true;
 		engineService 	= new Engine();
 		dataService 	= new Data();
 		viewerService	= new Viewer();
 		((Engine)engineService).bindDataService(dataService);
 		((Viewer)viewerService).bindReadService(dataService);
-		
+
 		dataService.init();
 		engineService.init();
-		
+
 		launch(args);
 	}
 
@@ -46,6 +47,23 @@ public class Main extends Application {
 				}
 			}
 		});
-		
+		t1 = new Thread() {
+			public void run() {
+				while(execute) {
+					viewerService.draw();
+				}
+			
+			}
+		};
+		t1.start();
+	}
+
+	@Override
+	public void stop() throws Exception {
+		execute = false;
+		t1.stop();
+		engineService.stop();
+		super.stop();
+
 	}
 }

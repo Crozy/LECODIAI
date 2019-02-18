@@ -55,6 +55,7 @@ public class Engine implements EngineService, RequireDataService {
 			e.setWidth(data.getEntitySize());
 			data.addEntity(e);
 		}
+//		addWalls();
 		
 	}
 	

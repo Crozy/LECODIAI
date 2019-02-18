@@ -2,10 +2,12 @@ package lecodiai.model;
 
 public class Robot extends Entity {
 	private int step;
+	private Direction direction;
 	
-	public Robot(Position pos, int width, int height) {
+	public Robot(Position pos, int width, int height, Direction direction) {
 		super(pos,width,height);
-		step = 0;
+		this.step = 0;
+		this.direction = direction;
 	}
 
 	public int getStep() {
@@ -15,6 +17,13 @@ public class Robot extends Entity {
 	public void setStep(int step) {
 		this.step = step;
 	}
-	
+
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;		
+	}
 	
 }

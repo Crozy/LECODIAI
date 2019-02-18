@@ -14,23 +14,24 @@ import lecodiai.specification.RequireReadService;
 import lecodiai.specification.ViewerService;
 
 public class Viewer implements ViewerService, RequireReadService, RequireEngineService{
-	
+
 	private EngineService engineService;
 	private ReadService data;
 	private Stage stage;
 	private Scene scene ;
 	private Group root;
+	private Rectangle robot;
 
 	@Override
 	public void bindReadService(ReadService service) {
 		this.data = service;
 	}
-	
+
 	@Override
 	public void bindEngineService(EngineService service) {
 		this.engineService = service;
 	}
-	
+
 	@Override
 	public void init(Stage stage) {
 		this.stage = stage;
@@ -40,15 +41,14 @@ public class Viewer implements ViewerService, RequireReadService, RequireEngineS
 		stage.show();
 		fillMap(root);
 		showRobot(root);
-		fillEntities(root);
-		
+		fillEntities(root);	
 	}
 
 	private void showRobot(Group root) {
 		Position pos = data.getRobotPosition();
-		Rectangle r = new Rectangle(pos.getX(), pos.getY(), data.getRobotWidth(), data.getRobotHeight());
-		r.setFill(Color.RED);
-		root.getChildren().add(r);
+		robot = new Rectangle(pos.getX(), pos.getY(), data.getRobotWidth(), data.getRobotHeight());
+		robot.setFill(Color.RED);
+		root.getChildren().add(robot);
 	}
 
 	private void fillEntities(Group group) {
@@ -61,7 +61,7 @@ public class Viewer implements ViewerService, RequireReadService, RequireEngineS
 			group.getChildren().add(r);
 		}
 	}
-	
+
 	private void fillMap(Group group) {
 		//top
 		group.getChildren().add(new Rectangle(data.getMapXMin()-data.getWallSize(), data.getMapYMin(), data.getWallSize(),data.getMapYMax()));
@@ -87,5 +87,9 @@ public class Viewer implements ViewerService, RequireReadService, RequireEngineS
 
 	}
 
-	
+	@Override
+	public void draw() {
+		robot.setX(data.getRobotPosition().getX()+1);
+	}
+
 }

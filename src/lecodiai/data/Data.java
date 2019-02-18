@@ -2,6 +2,7 @@ package lecodiai.data;
 
 import java.util.ArrayList;
 
+import lecodiai.model.Direction;
 import lecodiai.model.Entity;
 import lecodiai.model.Map;
 import lecodiai.model.Position;
@@ -16,7 +17,7 @@ public class Data implements DataService {
 	@Override
 	public void init() {
 		map = new Map(Parameters.MIN_X, Parameters.MAX_X,Parameters.MIN_Y, Parameters.MAX_Y);
-		robot = new Robot(new Position(Parameters.ROBOT_POS_X,Parameters.ROBOT_POS_Y), Parameters.ROBOT_WIDTH, Parameters.ROBOT_HEIGHT);
+		robot = new Robot(new Position(Parameters.ROBOT_POS_X,Parameters.ROBOT_POS_Y), Parameters.ROBOT_WIDTH, Parameters.ROBOT_HEIGHT,Parameters.DIRECTION);
 	}
 
 	@Override
@@ -91,6 +92,15 @@ public class Data implements DataService {
 		// final value
 		
 	}
-	
+
+	@Override
+	public Direction getRobotDirection() {
+		return this.robot.getDirection();
+	}
+
+	@Override
+	public void setRobotDirection(Direction newDirection) {
+		this.robot.setDirection(newDirection);
+	}
 	
 }

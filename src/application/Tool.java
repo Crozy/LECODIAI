@@ -126,8 +126,8 @@ public class Tool {
 				if (aspi.getLayoutY() + aspi.getHeight() - 10 >= mur.getEndY()
 						&& aspi.getLayoutY() - aspi.getHeight() + 10 <= mur.getStartY()) {
 
-					if (aspi.getLayoutX() + aspi.getWidth() >= mur.getStartX()
-							&& aspi.getLayoutX() - aspi.getWidth() <= mur.getEndX()) {
+					if (aspi.getLayoutX() + aspi.getWidth() - 10 >= mur.getStartX()
+							&& aspi.getLayoutX() - aspi.getWidth() + 10 <= mur.getEndX()) {
 						System.out.println("Position X : " + mur.getStartX() + " mur : " + mur.getId());
 						return false;
 					}

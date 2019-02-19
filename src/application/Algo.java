@@ -42,26 +42,26 @@ public class Algo {
 	public void Parti(Box aspi) {
 		System.out.println("Tour : " + tour);
 		tour++;
-		if (tour == 100) {
-			tour = 0;
-			valeurAlea = 1 + aleatoire.nextInt(4);
-			switch (valeurAlea) {
-			case 1:
-				action = "avance";
-				break;
-			case 2:
-				action = "recule";
-				break;
-			case 3:
-				action = "haut";
-				break;
-			case 4:
-				action = "bas";
-				break;
-			default:
-				break;
-			}
-		} else {
+//		if (tour == 100) {
+//			tour = 0;
+//			valeurAlea = 1 + aleatoire.nextInt(4);
+//			switch (valeurAlea) {
+//			case 1:
+//				action = "avance";
+//				break;
+//			case 2:
+//				action = "recule";
+//				break;
+//			case 3:
+//				action = "haut";
+//				break;
+//			case 4:
+//				action = "bas";
+//				break;
+//			default:
+//				break;
+//			}
+//		} else {
 			if (outils.recherche(aspi, action)) {
 				switch (valeurAlea) {
 				case 1:
@@ -98,8 +98,8 @@ public class Algo {
 					break;
 				}
 			}
-		}
-		// outils.bas(aspi);
+	//	}
+		//outils.haut(aspi);
 		System.out.println("Radar : " + outils.recherche(aspi, "avance"));
 	}
 

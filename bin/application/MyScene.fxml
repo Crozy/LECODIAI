@@ -23,7 +23,7 @@
       <Button fx:id="myButtonStop" layoutX="265.0" layoutY="505.0" mnemonicParsing="false" onAction="#clickButtonStop" prefHeight="25.0" prefWidth="115.0" text="Stop !" />
       <Line fx:id="mur1" endX="341.5" endY="169.0" startX="214.0" startY="169.0" />
       <Line fx:id="mur2" cache="true" endX="456.0" endY="352.0" startX="263.5" startY="352.0" />
-      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="399.0" layoutY="14.0" width="20.0" />
+      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="166.0" layoutY="36.0" width="20.0" />
       <Line fx:id="mur5" endX="456.0" endY="168.7928924560547" startX="382.5" startY="168.7928924560547" />
       <Line fx:id="mur3" endX="338.29290771484375" endY="161.0" startX="213.0" startY="161.0" />
       <Line fx:id="mur11" endX="212.5" endY="102.0" layoutY="10.0" startX="95.5" startY="102.0" />

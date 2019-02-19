@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+import java.util.ListIterator;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -8,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -20,7 +22,7 @@ import javafx.scene.shape.Rectangle;
 public class MyControlleur extends Thread implements Initializable {
 
 	@FXML
-	private AnchorPane anchorPane;
+	protected AnchorPane anchorPane;
 
 	// 0: Partie non lancé 1: Stop, 2: Go
 	private static int stopGo = 0;
@@ -42,13 +44,15 @@ public class MyControlleur extends Thread implements Initializable {
 	private Label theY;
 
 	@FXML
-	private Box aspi;
+	protected Box aspi;
 
 	@FXML
-	private Line mur1, mur2, mur3;
+	private Line mur1, mur2, mur3, mur21;
 
-	@FXML
-	private Line trace, trace2;
+//	@FXML
+//	private Line trace, trace2;
+
+	private Tool outils;
 
 	private Boolean monte = true;
 
@@ -67,28 +71,35 @@ public class MyControlleur extends Thread implements Initializable {
 	public void setTheY(Label theY) {
 		this.theY = theY;
 	}
-
-	public Box getAspi() {
-		return aspi;
-	}
-
-	public void setAspi(Box aspi) {
-		this.aspi = aspi;
-	}
+	
+	private Algo ia;
+	
+	private int tour;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
+		ia = new Algo(anchorPane, aspi);
+		
+		//outils = new Tool(anchorPane.getChildren().listIterator());
+		//outils.recherche();
+		// outils.addLine(anchorPane);
+
+		//ListIterator<Node> it = anchorPane.getChildren().listIterator();
+		//outils.setListElements(anchorPane.getChildren().listIterator());
+//		while (it.hasNext()) {
+//			Node result = it.next();
+//			System.out.println("ID : " + result.getId() + "Type : " + result.getTypeSelector());
+//		}
 
 		// Récupère l'emplacement de l'aspirateur et l'affiche dans les labels X Y.
 		theX.setText(String.valueOf(aspi.getLayoutX()));
 		theY.setText(String.valueOf(aspi.getLayoutY()));
 
-		System.out.println("Start Y : " + mur1.getStartY());
-		System.out.println("End Y : " + mur1.getEndY());
-		System.out.println("Start X : " + mur1.getStartX());
-		System.out.println("End X : " + mur1.getEndX());
-		
-		
+//		System.out.println("Start Y : " + mur1.getStartY());
+//		System.out.println("End Y : " + mur1.getEndY());
+//		System.out.println("Start X : " + mur1.getStartX());
+//		System.out.println("End X : " + mur1.getEndX());
 
 		myButtonGo = new Button("TEST");
 
@@ -135,15 +146,21 @@ public class MyControlleur extends Thread implements Initializable {
 				}
 				while (stopGo == 2) {
 					// System.out.println("Partie lancé");
-					System.out.println("X : " + aspi.getLayoutX() + " Y : " + aspi.getLayoutY());
+					//System.out.println("X : " + aspi.getLayoutX() + " Y : " + aspi.getLayoutY());
 					try {
 						sleep(100);
-						if (aspi.getLayoutX() <= mur1.getStartX() - aspi.getWidth()) {
-							avance();
-						} else {
-							monte();
-							System.out.println("Aspi : " + aspi.getLayoutX() + " mur : " + mur1.getStartX());
-						}
+						tour++;
+						ia.Parti(aspi);
+						Platform.runLater(() -> {
+						theX.setText(String.valueOf(aspi.getLayoutX()));
+						theY.setText(String.valueOf(aspi.getLayoutY()));
+						});
+						//if (aspi.getLayoutX() <= mur21.getStartX() - aspi.getWidth()) {
+							//outils.avance(aspi);
+//						} else {
+//							outils.haut(aspi);
+//							System.out.println("Aspi : " + aspi.getLayoutX() + " mur : " + mur1.getStartX());
+//						}
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -155,7 +172,7 @@ public class MyControlleur extends Thread implements Initializable {
 	// Action fournit par le simulateur
 	public void avance() {
 		Double theX = aspi.getLayoutX();
-		trace.setEndX(theX - 110);
+		// trace.setEndX(theX - 110);
 		this.aspi.setLayoutX(aspi.getLayoutX() + 1);
 	}
 
@@ -163,34 +180,34 @@ public class MyControlleur extends Thread implements Initializable {
 		this.aspi.setLayoutX(aspi.getLayoutX() - 1);
 	}
 
-	public void monte() {
-//		Double theY = aspi.getLayoutY();;
-//		anchorPane.getChildren().add(trace2);
-//		trace2.setStartX(aspi.getLayoutX());
-//		trace2.setStartY(aspi.getLayoutY());
-//		
-		this.aspi.setLayoutY(aspi.getLayoutY() - 1);
-//		trace2.setEndY(theY + 110);
-
-		if (monte) {
-			trace2 = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
-			//trace2.setStrokeWidth(15);
-			//trace2.setStroke(Color.BLUE);
-			Platform.runLater(() -> {
-				anchorPane.getChildren().add(trace2);
-			});
-
-			monte = false;
-		}
-
-		if (trace2 != null) {
-			trace2.setEndY(aspi.getLayoutY());
-		}
-	}
-
-	public void descent() {
-		this.aspi.setLayoutY(aspi.getLayoutY() + 1);
-	}
+//	public void monte() {
+////		Double theY = aspi.getLayoutY();;
+////		anchorPane.getChildren().add(trace2);
+////		trace2.setStartX(aspi.getLayoutX());
+////		trace2.setStartY(aspi.getLayoutY());
+////		
+//		this.aspi.setLayoutY(aspi.getLayoutY() - 1);
+////		trace2.setEndY(theY + 110);
+//
+//		if (monte) {
+//			trace2 = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
+//			//trace2.setStrokeWidth(15);
+//			//trace2.setStroke(Color.BLUE);
+//			Platform.runLater(() -> {
+//				anchorPane.getChildren().add(trace2);
+//			});
+//
+//			monte = false;
+//		}
+//
+//		if (trace2 != null) {
+//			trace2.setEndY(aspi.getLayoutY());
+//		}
+//	}
+//
+//	public void descent() {
+//		this.aspi.setLayoutY(aspi.getLayoutY() + 1);
+//	}
 
 //	public Boolean radarNord() {
 ////		if(aspi.getLayoutY() + 1){

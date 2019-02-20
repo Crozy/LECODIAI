@@ -17,7 +17,7 @@ public class Algo {
 	public Algo(AnchorPane panel, Box aspi) {
 		outils = new Tool(panel.getChildren().listIterator());
 		valeurAlea = 1 + aleatoire.nextInt(4);
-		valeurAlea2 = aleatoire.nextInt(200);
+		valeurAlea2 = 100 + aleatoire.nextInt(100);
 
 		System.out.println(valeurAlea);
 
@@ -46,7 +46,7 @@ public class Algo {
 		tour++;
 		if (tour >= valeurAlea2) {
 			tour = 0;
-			valeurAlea2 = aleatoire.nextInt(100);
+			valeurAlea2 = 100 + aleatoire.nextInt(100);
 //			if ((action.equals("avance") || action.equals("recule")) && (outils.recherche(aspi, "haut") || outils.recherche(aspi, "bas"))) {
 			if (action.equals("avance") || action.equals("recule")){
 				valeurAlea = 3 + aleatoire.nextInt(2);
@@ -107,7 +107,7 @@ public class Algo {
 				}
 			}
 		}
-		 //outils.bas(aspi, panel);
+		//outils.bas(aspi, panel);
 		System.out.println("Radar : " + outils.recherche(aspi, "avance"));
 	}
 

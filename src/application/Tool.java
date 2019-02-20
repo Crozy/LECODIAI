@@ -6,6 +6,7 @@ import java.util.ListIterator;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Line;
 
@@ -48,10 +49,7 @@ public class Tool {
 			hautFirts = false;
 			basFirts = false;
 
-			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
-			Platform.runLater(() -> {
-				panel.getChildren().add(trace);
-			});
+			traceLine(aspi, panel);
 		}
 		if (recherche(aspi, "avance")) {
 			aspi.setLayoutX(aspi.getLayoutX() + 1);
@@ -69,10 +67,7 @@ public class Tool {
 			hautFirts = false;
 			basFirts = false;
 
-			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
-			Platform.runLater(() -> {
-				panel.getChildren().add(trace);
-			});
+			traceLine(aspi, panel);
 		}
 		if (recherche(aspi, "recule")) {
 			Platform.runLater(() -> {
@@ -90,10 +85,7 @@ public class Tool {
 			hautFirts = true;
 			basFirts = false;
 
-			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
-			Platform.runLater(() -> {
-				panel.getChildren().add(trace);
-			});
+			traceLine(aspi, panel);
 		}
 		if (recherche(aspi, "haut")) {
 			Platform.runLater(() -> {
@@ -111,10 +103,7 @@ public class Tool {
 			hautFirts = false;
 			basFirts = true;
 
-			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
-			Platform.runLater(() -> {
-				panel.getChildren().add(trace);
-			});
+			traceLine(aspi, panel);
 		}
 		if (recherche(aspi, "bas")) {
 			Platform.runLater(() -> {
@@ -139,8 +128,8 @@ public class Tool {
 
 			for (Line mur : listObstacleADroite) {
 
-				if (aspi.getLayoutY() + aspi.getHeight() - 15 >= mur.getStartY()
-						&& aspi.getLayoutY() - aspi.getHeight() + 15 <= mur.getEndY()) {
+				if (aspi.getLayoutY() + aspi.getHeight() - 10 >= mur.getStartY()
+						&& aspi.getLayoutY() - aspi.getHeight() + 10 <= mur.getEndY()) {
 
 					if (aspi.getLayoutX() + aspi.getWidth() - 10 >= mur.getStartX()
 							&& aspi.getLayoutX() - aspi.getWidth() <= mur.getEndX()) {
@@ -164,8 +153,8 @@ public class Tool {
 
 			for (Line mur : listObstacleAGauche) {
 
-				if (aspi.getLayoutY() + aspi.getHeight() - 15 >= mur.getStartY()
-						&& aspi.getLayoutY() - aspi.getHeight() + 15 <= mur.getEndY()) {
+				if (aspi.getLayoutY() + aspi.getHeight() - 10 >= mur.getStartY()
+						&& aspi.getLayoutY() - aspi.getHeight() + 10 <= mur.getEndY()) {
 
 					if (aspi.getLayoutX() + aspi.getWidth() - 10 >= mur.getStartX()
 							&& aspi.getLayoutX() - aspi.getWidth() + 10 <= mur.getEndX()) {
@@ -229,20 +218,18 @@ public class Tool {
 				}
 			}
 		}
-
-//		if (action.equals("monte") || action.equals("descent")) {
-//
-//			for (Line mur : listObstacle) {
-//
-//				if (aspi.getLayoutY() >= mur.getStartY() && aspi.getLayoutY() <= mur.getEndY()) {
-//					System.out.println("Position X : " + mur.getStartX() + " mur : " + mur.getId());
-//					if (aspi.getLayoutX() + aspi.getWidth() >= mur.getStartX()
-//							&& aspi.getLayoutX() - aspi.getWidth() <= mur.getEndX()) {
-//						return false;
-//					}
-//				}
-//			}
-//		}
 		return true;
+	}
+	
+	private void traceLine(Box aspi, AnchorPane panel) {
+		trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
+		trace.setStrokeWidth(10);
+		trace.setStroke(Color.GRAY);
+		trace.setOpacity(0.5);
+		Platform.runLater(() -> {
+			panel.getChildren().add(trace);
+			//trace.toBack();
+			aspi.toFront();
+		});
 	}
 }

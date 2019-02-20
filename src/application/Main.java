@@ -41,16 +41,14 @@ public class Main extends Application {
 		 
 		        	 try {
 		        		 
-		        		 FXMLLoader loader = new FXMLLoader(getClass().getResource("MyScene1.fxml"));  
-		        		 Parent root = (Parent) loader.load();  
-		        		 MyControlleur controller = (MyControlleur) loader.getController();  
-		        		 Scene scene = new Scene(root);  
+		        		 FXMLLoader loader = new FXMLLoader(getClass().getResource("MyScene1.fxml"));
+		        		 Parent root = (Parent) loader.load();
+		        		 MyControlleur controller = (MyControlleur) loader.getController();
+		        		 Scene scene = new Scene(root);
 		        		 Stage stage = new Stage();  
 		        		 stage.setScene(scene);  
 		        		 stage.setTitle("My Window");  
-		        		 stage.show();  
-
-		     			
+		        		 stage.show();
 
 		     		} catch (Exception e) {
 		     			e.printStackTrace();

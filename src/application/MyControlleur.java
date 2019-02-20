@@ -20,7 +20,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 public class MyControlleur extends Thread implements Initializable {
-
+	
 	@FXML
 	protected AnchorPane anchorPane;
 
@@ -111,10 +111,13 @@ public class MyControlleur extends Thread implements Initializable {
 				}
 				while (stopGo == 2) {
 					try {
-						sleep(100);
+						sleep(1);
 						tour++;
-						ia.Parti(aspi, anchorPane);
+						
+						//ia.Parti(aspi, anchorPane);
+						
 						Platform.runLater(() -> {
+						ia.Parti(aspi, anchorPane);
 						theX.setText(String.valueOf(aspi.getLayoutX()));
 						theY.setText(String.valueOf(aspi.getLayoutY()));
 						});

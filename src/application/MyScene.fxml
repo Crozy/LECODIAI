@@ -21,7 +21,7 @@
       <Label fx:id="theX" layoutX="77.0" layoutY="466.0" text="theX" />
       <Label fx:id="theY" layoutX="77.0" layoutY="500.0" text="theY" />
       <Button fx:id="myButtonStop" layoutX="265.0" layoutY="505.0" mnemonicParsing="false" onAction="#clickButtonStop" prefHeight="25.0" prefWidth="115.0" text="Stop !" />
-      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="58.0" layoutY="286.0" width="20.0" />
+      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="47.0" layoutY="286.0" width="20.0" />
       <Line fx:id="mur1" endX="340.0" endY="171.0" opacity="0.0" startX="213.0" startY="171.0" />
       <Line fx:id="mur2" cache="true" endX="456.0" endY="351.0" opacity="0.0" startX="262.0" startY="351.0" />
       <Line fx:id="mur5" endX="456.0" endY="171.0" opacity="0.0" startX="381.0" startY="171.0" />
@@ -66,7 +66,7 @@
       <Line fx:id="mur42" endX="114.5" endY="343.0" opacity="0.0" startX="1.0" startY="343.0" />
       <Line fx:id="mur43" endX="115.0" endY="309.0" opacity="0.0" startX="103.0" startY="309.0" />
 
-      <Line fx:id="mur44" endX="45.0" endY="299.79290771484375" layoutX="10.0" layoutY="10.0" opacity="0.0" startX="28.5" startY="299.79290771484375" />
+      <Line fx:id="mur44" endX="55.25" endY="308.75" opacity="0.0" startX="38.25" startY="308.75" />
       <Line fx:id="mur45" endX="38.0" endY="248.0" opacity="0.0" startX="38.0" startY="234.5" />
       <Line fx:id="mur59" endX="38.0" endY="308.79290771484375" opacity="0.0" startX="38.0" startY="295.0" />
       <Line fx:id="mur46" endX="90.5" endY="52.79289245605469" opacity="0.0" startX="90.5" startY="1.5" />
@@ -84,7 +84,7 @@
       <Line fx:id="mur57" endX="288.0" endY="298.0" opacity="0.0" startX="288.0" startY="245.0" />
       <Line fx:id="mur80" endX="44.5" endY="234.5" opacity="0.0" startX="38.0" startY="234.5" />
       <Line fx:id="mur81" endX="102.5" endY="317.0" opacity="0.0" startX="102.5" startY="309.0" />
-      <Line fx:id="mur82" endX="55.5" endY="317.0" opacity="0.0" startX="55.5" startY="310.0" />
+      <Line fx:id="mur82" endX="55.5" endY="317.0" opacity="0.0" startX="55.5" startY="309.0" />
       <Line fx:id="mur801" endX="38.0" endY="248.0" opacity="0.0" startX="29.5" startY="248.0" />
       <Line fx:id="mur8011" endX="38.0" endY="295.0" opacity="0.0" startX="29.5" startY="295.0" />
    </children>

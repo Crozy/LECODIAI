@@ -23,12 +23,12 @@
       <Button fx:id="myButtonStop" layoutX="265.0" layoutY="505.0" mnemonicParsing="false" onAction="#clickButtonStop" prefHeight="25.0" prefWidth="115.0" text="Stop !" />
       <Line fx:id="mur5" endX="443.0" endY="10.0" startX="13.25" startY="10.0" />
       <Line fx:id="mur2" cache="true" endX="444.25" endY="323.0" startX="88.0" startY="323.0" />
-      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="430.0" layoutY="183.0" width="20.0" />
+      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="98.0" layoutY="278.0" width="20.0" />
       <Line fx:id="mur1" cache="true" endX="358.25" endY="236.25" startX="12.75" startY="236.25" />
       <Line fx:id="mur3" cache="true" endX="358.0" endY="226.0" startX="12.0" startY="226.0" />
       <Line fx:id="mur4" cache="true" endX="222.0" endY="126.0" startX="11.792900085449219" startY="125.99999237060547" />
       <Line fx:id="mur6" endX="417.25" endY="167.0" startX="315.5" startY="167.0" />
-      <Line fx:id="mur7" endX="407.0" endY="146.25" layoutX="10.0" layoutY="10.0" startX="317.5" startY="146.25" />
+      <Line fx:id="mur7" endX="416.0" endY="156.0" startX="327.0" startY="156.0" />
       <Line fx:id="mur8" endX="444.5" endY="41.25" startX="415.75" startY="41.25000762939453" />
       <Line fx:id="mur9" endX="396.75" endY="99.25" startX="347.5" startY="99.25" />
       <Line fx:id="mur10" cache="true" endX="178.25" endY="159.0" startX="36.5" startY="159.0" />

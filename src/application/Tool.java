@@ -3,7 +3,9 @@ package application;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
+import javafx.application.Platform;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Line;
 
@@ -11,6 +13,11 @@ public class Tool {
 
 	private ListIterator<Node> listDesElements;
 	private ArrayList<Line> listObstacle = new ArrayList<>();
+	private Line trace;
+	private Boolean avanceFirts = false;
+	private Boolean reculeFirts = false;
+	private Boolean hautFirts = false;
+	private Boolean basFirts = false;
 
 	public Tool(ListIterator<Node> listElements) {
 		this.listDesElements = listElements;
@@ -33,26 +40,86 @@ public class Tool {
 		return listDesElements;
 	}
 
-	public void avance(Box aspi) {
+	public void avance(Box aspi, AnchorPane panel) {
+		if (avanceFirts == false) {
+
+			avanceFirts = true;
+			reculeFirts = false;
+			hautFirts = false;
+			basFirts = false;
+
+			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
+			Platform.runLater(() -> {
+				panel.getChildren().add(trace);
+			});
+		}
 		if (recherche(aspi, "avance")) {
 			aspi.setLayoutX(aspi.getLayoutX() + 1);
+			Platform.runLater(() -> {
+				trace.setEndX(aspi.getLayoutX());
+			});
 		}
 	}
 
-	public void recule(Box aspi) {
+	public void recule(Box aspi, AnchorPane panel) {
+		if (reculeFirts == false) {
+
+			avanceFirts = false;
+			reculeFirts = true;
+			hautFirts = false;
+			basFirts = false;
+
+			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
+			Platform.runLater(() -> {
+				panel.getChildren().add(trace);
+			});
+		}
 		if (recherche(aspi, "recule")) {
+			Platform.runLater(() -> {
+				trace.setEndX(aspi.getLayoutX());
+			});
 			aspi.setLayoutX(aspi.getLayoutX() - 1);
 		}
 	}
 
-	public void haut(Box aspi) {
+	public void haut(Box aspi, AnchorPane panel) {
+		if (hautFirts == false) {
+
+			avanceFirts = false;
+			reculeFirts = false;
+			hautFirts = true;
+			basFirts = false;
+
+			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
+			Platform.runLater(() -> {
+				panel.getChildren().add(trace);
+			});
+		}
 		if (recherche(aspi, "haut")) {
+			Platform.runLater(() -> {
+				trace.setEndY(aspi.getLayoutY());
+			});
 			aspi.setLayoutY(aspi.getLayoutY() - 1);
 		}
 	}
 
-	public void bas(Box aspi) {
+	public void bas(Box aspi, AnchorPane panel) {
+		if (basFirts == false) {
+
+			avanceFirts = false;
+			reculeFirts = false;
+			hautFirts = false;
+			basFirts = true;
+
+			trace = new Line(aspi.getLayoutX(), aspi.getLayoutY(), aspi.getLayoutX(), aspi.getLayoutY());
+			Platform.runLater(() -> {
+				panel.getChildren().add(trace);
+			});
+		}
 		if (recherche(aspi, "bas")) {
+			Platform.runLater(() -> {
+				trace.setEndY(aspi.getLayoutY());
+			});
 			aspi.setLayoutY(aspi.getLayoutY() + 1);
 		}
 	}
@@ -65,14 +132,15 @@ public class Tool {
 
 			// Recupere les Line situé a droite de l'aspi
 			for (Line result : listObstacle) {
-				if (aspi.getLayoutX() < result.getEndX()) {
+				if (aspi.getLayoutX() < result.getEndX() && (aspi.getLayoutY() >= result.getStartY() && aspi.getLayoutY() <= result.getEndY())) {
 					listObstacleADroite.add(result);
 				}
 			}
 
 			for (Line mur : listObstacleADroite) {
 
-				if (aspi.getLayoutY() + aspi.getHeight() - 15 >= mur.getStartY() && aspi.getLayoutY() - aspi.getHeight() + 15 <= mur.getEndY()) {
+				if (aspi.getLayoutY() + aspi.getHeight() - 15 >= mur.getStartY()
+						&& aspi.getLayoutY() - aspi.getHeight() + 15 <= mur.getEndY()) {
 
 					if (aspi.getLayoutX() + aspi.getWidth() - 10 >= mur.getStartX()
 							&& aspi.getLayoutX() - aspi.getWidth() <= mur.getEndX()) {
@@ -89,14 +157,15 @@ public class Tool {
 
 			// Recupere les Line situé a droite de l'aspi
 			for (Line result : listObstacle) {
-				if (result.getStartX() < aspi.getLayoutX()) {
+				if (result.getStartX() < aspi.getLayoutX() && (aspi.getLayoutY() >= result.getStartY() && aspi.getLayoutY() <= result.getEndY())) {
 					listObstacleAGauche.add(result);
 				}
 			}
 
 			for (Line mur : listObstacleAGauche) {
 
-				if (aspi.getLayoutY() + aspi.getHeight() - 15 >= mur.getStartY() && aspi.getLayoutY() - aspi.getHeight() + 15 <= mur.getEndY()) {
+				if (aspi.getLayoutY() + aspi.getHeight() - 15 >= mur.getStartY()
+						&& aspi.getLayoutY() - aspi.getHeight() + 15 <= mur.getEndY()) {
 
 					if (aspi.getLayoutX() + aspi.getWidth() - 10 >= mur.getStartX()
 							&& aspi.getLayoutX() - aspi.getWidth() + 10 <= mur.getEndX()) {
@@ -113,8 +182,8 @@ public class Tool {
 
 			// Recupere les Line situé en haut de l'aspi
 			for (Line result : listObstacle) {
-				if (result.getStartY() < aspi.getLayoutY()) {
-					//System.out.println(" mur : " + result.getId());
+				if ((result.getStartY() < aspi.getLayoutY()) && (aspi.getLayoutX() >= result.getStartX() && aspi.getLayoutX() <= result.getEndX())) {
+					// System.out.println(" mur : " + result.getId());
 					listObstacleAHaut.add(result);
 				}
 			}
@@ -141,8 +210,8 @@ public class Tool {
 
 			// Recupere les Line situé en bas de l'aspi
 			for (Line result : listObstacle) {
-				if (result.getEndY() > aspi.getLayoutY()) {
-					//System.out.println(" mur : " + result.getId());
+				if ((result.getEndY() > aspi.getLayoutY()) && (aspi.getLayoutX() >= result.getStartX() && aspi.getLayoutX() <= result.getEndX())) {
+					// System.out.println(" mur : " + result.getId());
 					listObstacleABas.add(result);
 				}
 			}

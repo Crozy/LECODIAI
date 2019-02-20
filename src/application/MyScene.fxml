@@ -82,7 +82,7 @@
       <Line fx:id="mur52" endX="166.5" endY="285.79290771484375" startX="166.5" startY="256.79290771484375" />
       <Line fx:id="mur54" endX="398.0" endY="246.7928924560547" startX="289.0" startY="246.7928924560547" />
       <Line fx:id="mur55" endX="398.0" endY="288.0" startX="289.0" startY="288.0" />
-      <Line fx:id="mur56" endX="399.0" endY="247.7928924560547" startX="399.0" startY="286.5" />
+      <Line fx:id="mur56" endX="399.0" endY="286.0" startX="399.0" startY="247.0" />
       <Line fx:id="mur57" endX="288.0" endY="285.79290771484375" startX="288.0" startY="247.7928924560547" />
       <Line fx:id="mur80" endX="45.0" endY="234.5" startX="28.0" startY="234.5" />
       <Line fx:id="mur81" endX="102.5" endY="317.0" startX="102.5" startY="312.0" />

@@ -104,7 +104,7 @@ public class MyControlleur extends Thread implements Initializable {
 			while (true) {
 				while (stopGo == 1) {
 					try {
-						sleep(100);
+						sleep(1);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -113,7 +113,7 @@ public class MyControlleur extends Thread implements Initializable {
 					try {
 						sleep(100);
 						tour++;
-						ia.Parti(aspi);
+						ia.Parti(aspi, anchorPane);
 						Platform.runLater(() -> {
 						theX.setText(String.valueOf(aspi.getLayoutX()));
 						theY.setText(String.valueOf(aspi.getLayoutY()));

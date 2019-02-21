@@ -114,8 +114,6 @@ public class MyControlleur extends Thread implements Initializable {
 						sleep(1);
 						tour++;
 						
-						//ia.Parti(aspi, anchorPane);
-						
 						Platform.runLater(() -> {
 						ia.Parti(aspi, anchorPane);
 						theX.setText(String.valueOf(aspi.getLayoutX()));

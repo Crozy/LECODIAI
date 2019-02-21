@@ -21,7 +21,7 @@
       <Label fx:id="theX" layoutX="77.0" layoutY="466.0" text="theX" />
       <Label fx:id="theY" layoutX="77.0" layoutY="500.0" text="theY" />
       <Button fx:id="myButtonStop" layoutX="265.0" layoutY="505.0" mnemonicParsing="false" onAction="#clickButtonStop" prefHeight="25.0" prefWidth="115.0" text="Stop !" />
-      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="401.0" layoutY="212.0" width="20.0" />
+      <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="108.0" layoutY="147.0" width="20.0" />
       <Line fx:id="mur1" endX="340.0" endY="171.0" startX="213.0" startY="171.0" />
       <Line fx:id="mur5" endX="456.0" endY="171.0" startX="381.0" startY="171.0" />
       <Line fx:id="mur3" endX="340.0" endY="160.0" startX="213.0" startY="160.0" />

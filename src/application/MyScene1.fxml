@@ -23,7 +23,7 @@
       <Button fx:id="myButtonStop" layoutX="265.0" layoutY="505.0" mnemonicParsing="false" onAction="#clickButtonStop" prefHeight="25.0" prefWidth="115.0" text="Stop !" />
       <Box fx:id="aspi" cullFace="FRONT" depth="100.0" height="20.0" layoutX="55.0" layoutY="280.0" width="20.0" />
       <Line fx:id="mur5" endX="443.0" endY="10.0" startX="13.25" startY="10.0" />
-      <Line fx:id="mur2" cache="true" endX="444.25" endY="323.0" startX="91.5" startY="323.0" />
+      <Line fx:id="mur2" cache="true" endX="444.25" endY="323.0" startX="11.25" startY="323.0" />
       <Line fx:id="mur1" cache="true" endX="358.0" endY="236.25" startX="12.75" startY="236.25" />
       <Line fx:id="mur3" cache="true" endX="358.0" endY="226.0" startX="12.0" startY="226.0" />
       <Line fx:id="mur4" cache="true" endX="223.75" endY="126.0" startX="11.792900085449219" startY="125.99999237060547" />
@@ -39,11 +39,10 @@
       <Line fx:id="mur15" cache="true" endX="35.5" endY="189.75" startX="13.5" startY="189.75" />
       <Line fx:id="mur16" cache="true" endX="223.25" endY="168.75" startX="201.75" startY="168.75" />
       <Line fx:id="mur17" cache="true" endX="201.0" endY="174.5" startX="177.75" startY="174.5" />
-      <Line fx:id="mur18" cache="true" endX="43.0" endY="251.75" startX="12.75" startY="251.75" />
       <Line fx:id="mur19" cache="true" endX="139.0" endY="251.75" startX="93.0" startY="251.75" />
       <Line fx:id="mur20" cache="true" endX="220.0" endY="251.75" startX="176.0" startY="251.75" />
       <Line fx:id="mur201" cache="true" endX="311.0" endY="251.75" startX="266.0" startY="251.75" />
-      <Line fx:id="mur22" cache="true" endX="44.0" endY="323.5" startX="44.0" startY="236.0" />
+      <Line fx:id="mur22" cache="true" endX="44.0" endY="323.5" startX="44.0" startY="297.0" />
       <Line fx:id="mur23" cache="true" endX="175.25" endY="251.75" startX="175.25" startY="236.75" />
       <Line fx:id="mur24" cache="true" endX="139.0" endY="251.5" startX="139.0" startY="236.25" />
       <Line fx:id="mur25" cache="true" endX="93.0" endY="251.75" startX="93.0" startY="236.0" />
@@ -71,7 +70,7 @@
       <Line fx:id="mur56" cache="true" endX="415.5" endY="41.0" startX="415.5" startY="11.0" />
       <Line fx:id="mur57" cache="true" endX="199.5" endY="39.75" startX="199.5" startY="10.0" />
       <Line fx:id="mur58" cache="true" endX="125.0" endY="39.8" startX="125.0" startY="10.75" />
-      <Line fx:id="mur60" cache="true" endX="12.500007629394531" endY="253.0" startX="12.5" startY="10.75" />
+      <Line fx:id="mur60" cache="true" endX="12.500007629394531" endY="323.0" startX="12.5" startY="10.75" />
       <Line fx:id="mur61" cache="true" endX="143.5" endY="105.0" startX="143.5" startY="68.75" />
       <Line fx:id="mur62" cache="true" endX="171.0" endY="105.0" startX="171.0" startY="69.0" />
       <Line fx:id="mur63" cache="true" endX="223.75" endY="168.75" startX="223.75" startY="126.5" />

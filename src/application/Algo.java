@@ -12,7 +12,7 @@ public class Algo {
 	private Tool outils;
 	private int tour;
 	private int valeurAlea = 1, valeurAlea2 = 2; // 1: avance, 2: recule, 3: haut, 4: bas
-	private String action = "avance", actionprecedente = "avance", actionprecedenteprecedente = "avance";
+	private String action = "recule", actionprecedente = "avance", actionprecedenteprecedente = "avance";
 	private Random aleatoire = new Random();
 	private Boolean firstStep = true;
 
@@ -53,8 +53,8 @@ public class Algo {
 		if (firstStep) {
 			
 			//System.out.println(outils.recherche(aspi, "haut"));
-			if (action.equals("avance") && outils.recherche(aspi, "avance")) {
-				outils.avance(aspi, panel);
+			if (action.equals("recule") && outils.recherche(aspi, "recule")) {
+				outils.recule(aspi, panel);
 				return;
 			} else {
 				action = "haut";
@@ -73,6 +73,8 @@ public class Algo {
 				actionprecedenteprecedente = actionprecedente;
 				actionprecedente = action;
 				action="avance";
+				outils.avance(aspi, panel);
+				return;
 			} else{
 				actionprecedenteprecedente = actionprecedente;
 				actionprecedente = action;
